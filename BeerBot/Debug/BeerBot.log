@@ -1,47 +1,11 @@
-﻿Build started 4/4/2015 4:05:15 PM.
-     1>Project "C:\Users\Josh\Google Drive\Umass Lowell\Robotics I\Final Project\Code\BeerBot\BeerBot\BeerBot.vcxproj" on node 2 (Build target(s)).
+﻿Build started 4/4/2015 9:17:40 PM.
+     1>Project "C:\Users\Josh\Documents\GitHub\BeerBot\BeerBot\BeerBot.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Za /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt botball.c "Close-Fridge.c" Deliver.c Logger.c Main.c Order.c Retrieve.c "Search-Load.c"
-         Search-Load.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\search-load.c(1): error C2183: syntax error: translation unit is empty
-         Retrieve.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\retrieve.c(1): error C2183: syntax error: translation unit is empty
-         Order.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\order.c(1): error C2183: syntax error: translation unit is empty
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Za /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Main.c
          Main.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\main.c(6): warning C4101: 'globals' : unreferenced local variable
-         Logger.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\logger.c(1): error C2183: syntax error: translation unit is empty
-         Deliver.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\deliver.c(1): error C2183: syntax error: translation unit is empty
-         Close-Fridge.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\close-fridge.c(1): error C2183: syntax error: translation unit is empty
-         botball.c
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(67): warning C4013: 'sleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(70): warning C4013: 'left_button' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(72): warning C4013: 'msleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(81): warning C4013: 'right_button' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(83): warning C4013: 'msleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(98): warning C4013: 'start_process' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(101): warning C4013: 'msleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(109): warning C4013: 'seconds' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(109): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(126): warning C4013: 'sleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(151): warning C4013: 'msleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(161): warning C4013: 'kill_process' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(174): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(175): warning C4013: 'start_process' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(184): warning C4013: 'start_process' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(186): error C2065: 'GL_TRUE' : undeclared identifier
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(186): warning C4013: 'glfwWaitThread' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(186): error C2065: 'GLFW_NOWAIT' : undeclared identifier
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(187): warning C4013: 'sleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(188): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(190): warning C4013: 'sleep' undefined; assuming extern returning int
-     1>c:\users\josh\google drive\umass lowell\robotics i\final project\code\beerbot\beerbot\botball.c(191): warning C4013: 'kill_process' undefined; assuming extern returning int
-         Generating Code...
-     1>Done Building Project "C:\Users\Josh\Google Drive\Umass Lowell\Robotics I\Final Project\Code\BeerBot\BeerBot\BeerBot.vcxproj" (Build target(s)) -- FAILED.
+     1>c:\program files (x86)\kiss ide 3.0.2\targets\cbc2\include\cbc2cxx.h(393): fatal error C1004: unexpected end-of-file found
+     1>Done Building Project "C:\Users\Josh\Documents\GitHub\BeerBot\BeerBot\BeerBot.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:01.69
+Time Elapsed 00:00:00.13

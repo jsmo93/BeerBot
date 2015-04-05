@@ -18,30 +18,6 @@
     <ClCompile Include="Main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Open-Fridge.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Close-Fridge.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Search-Load.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Deliver.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Order.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Retrieve.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Logger.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Globals.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Order.h">
@@ -66,6 +42,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BeepCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VisionUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

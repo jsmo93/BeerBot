@@ -66,25 +66,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Close-Fridge.c" />
-    <ClCompile Include="Deliver.c" />
-    <ClCompile Include="Globals.c" />
-    <ClCompile Include="Logger.c" />
     <ClCompile Include="Main.c" />
-    <ClCompile Include="Open-Fridge.c" />
-    <ClCompile Include="Order.c" />
-    <ClCompile Include="Retrieve.c" />
-    <ClCompile Include="Search-Load.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BeepCode.h" />
     <ClInclude Include="Close-Fridge.h" />
     <ClInclude Include="Deliver.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="MoveUtils.h" />
     <ClInclude Include="Open-Fridge.h" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="Retrieve.h" />
     <ClInclude Include="Search-Load.h" />
+    <ClInclude Include="VisionUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -67,7 +67,7 @@ void setDefaults()
 {
 	globals.globalLogParams.logLevel = 5;
 
-	globals.globalMotionParams.moveSpeed = 400;
+	globals.globalMotionParams.moveSpeed = 500;
 	globals.globalMotionParams.turnSpeed = 200;
 	globals.globalMotionParams.moveInterval = 0.5;
 	globals.globalMotionParams.turnInterval = 0.25;

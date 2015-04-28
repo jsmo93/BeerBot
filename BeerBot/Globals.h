@@ -67,7 +67,7 @@ void setDefaults()
 {
 	globals.globalLogParams.logLevel = 5;
 
-	globals.globalMotionParams.moveSpeed = 500;
+	globals.globalMotionParams.moveSpeed = 300;
 	globals.globalMotionParams.turnSpeed = 200;
 	globals.globalMotionParams.moveInterval = 0.5;
 	globals.globalMotionParams.turnInterval = 0.25;
@@ -76,15 +76,15 @@ void setDefaults()
 	globals.globalDebugParams.enableDebug = false;
 	globals.globalDebugParams.startInState = 0;
 
-	globals.globalSensorParams.frontBumperPort = 0;
-	globals.globalSensorParams.frontLeftIRPort = 1;
+	globals.globalSensorParams.frontBumperPort = 9;
+	globals.globalSensorParams.frontLeftIRPort = 3;
 	globals.globalSensorParams.frontRightIRPort = 2;
-	globals.globalSensorParams.rearBumperPort = 3;
-	globals.globalSensorParams.rearLeftIRPort = 4;
-	globals.globalSensorParams.rearRightIRPort = 5;
+	globals.globalSensorParams.rearBumperPort = 10;
+	globals.globalSensorParams.rearLeftIRPort = 1;
+	globals.globalSensorParams.rearRightIRPort = 0;
 	globals.globalSensorParams.remoteControlPort = 6;
-	globals.globalSensorParams.arduinoPort = 7;
-	globals.globalSensorParams.IRThreshold = 300;
+	globals.globalSensorParams.arduinoPort = 8;
+	globals.globalSensorParams.IRThreshold = 750;
 
 	globals.globalErrorParams.enableBeeps = true;
 

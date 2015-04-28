@@ -14,7 +14,7 @@ void moveStraightRetrieve()
 
 void turnLeftRetrieve()
 {
-	mav(0, globals.globalMotionParams.turnSpeed);
+	mav(0, -globals.globalMotionParams.turnSpeed);
 	mav(3, globals.globalMotionParams.moveSpeed);
 	sleep(globals.globalMotionParams.turnInterval);
 	ao();
@@ -23,7 +23,7 @@ void turnLeftRetrieve()
 void turnRightRetrieve()
 {
 	mav(0, globals.globalMotionParams.moveSpeed);
-	mav(3, globals.globalMotionParams.turnSpeed);
+	mav(3, -globals.globalMotionParams.turnSpeed);
 	sleep(globals.globalMotionParams.turnInterval);
 	ao();
 }
@@ -53,6 +53,22 @@ bool moveRetrieval()
 		approachFridge();
 	}
 	else if (IRReadings.frontLeftIR && IRReadings.frontRightIR && IRReadings.rearRightIR && IRReadings.rearLeftIR)
+	{
+		return true;
+	}
+	else
+	{
+		moveStraightRetrieve();
+	}
+
+	return false;
+}
+
+bool launchRetrieval()
+{
+	IRReadings = pullSensorData();
+
+	if (!IRReadings.frontLeftIR && !IRReadings.frontRightIR && !IRReadings.rearRightIR && !IRReadings.rearLeftIR)
 	{
 		return true;
 	}

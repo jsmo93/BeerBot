@@ -11,24 +11,44 @@
 int main()
 {
 	setDefaults();
-
+	bool atLocation = false;
 	//State 1 - Order
 	//State 2 - Retrieve
 	//State 3 - Open Fridge
 	//State 4 - Search and Load
-	//State 5 - Deliver
+	//State 5 - Close Fridge
+	//State 6 - Deliver
 	while (1)
 	{
 		getOrder();
+		printf("\nOrder - Beer %d", globals.globalOrderParams.orderNumber);
+		sleep(10);
 
-		if (!moveRetrieval())
+		while (!atLocation)
 		{
-			log("Error, could not move to fridge", 1);
-			beepCode(2, 1);
-			beepCode(1, 0);
-			return 1;
+			atLocation = launchRetrieval();
 		}
+		atLocation = false;
+		while (!atLocation)
+		{
+			atLocation = moveRetrieval();
+		}
+		atLocation = false;
 
+		beep();
+
+		//getOrder();
+		while (!atLocation)
+		{
+			atLocation = launchDeliver();
+		}
+		atLocation = false;
+		while (!atLocation)
+		{
+			atLocation = moveDeliver();
+		}
+		atLocation = false;
+		/*
 		if (!positionClaw())
 		{
 			log("Error, could locate or load beer", 1);
@@ -43,7 +63,7 @@ int main()
 			beepCode(5, 1);
 			beepCode(1, 0);
 			return 1;
-		}
+		}*/
 	}
 
 	return 0;

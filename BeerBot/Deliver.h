@@ -15,14 +15,14 @@ void moveStraightDeliver()
 void turnLeftDeliver()
 {
 	mav(0, -globals.globalMotionParams.moveSpeed);
-	mav(3, -globals.globalMotionParams.turnSpeed);
+	mav(3, globals.globalMotionParams.turnSpeed);
 	sleep(globals.globalMotionParams.turnInterval);
 	ao();
 }
 
 void turnRightDeliver()
 {
-	mav(0, -globals.globalMotionParams.turnSpeed);
+	mav(0, globals.globalMotionParams.turnSpeed);
 	mav(3, -globals.globalMotionParams.moveSpeed);
 	sleep(globals.globalMotionParams.turnInterval);
 	ao();
@@ -53,6 +53,22 @@ bool moveDeliver()
 		approachDeliveryPad();
 	}
 	else if (IRReadings.rearRightIR && IRReadings.rearLeftIR && IRReadings.frontLeftIR && IRReadings.frontRightIR)
+	{
+		return true;
+	}
+	else
+	{
+		moveStraightDeliver();
+	}
+
+	return false;
+}
+
+bool launchDeliver()
+{
+	IRReadings = pullSensorData();
+
+	if (!IRReadings.rearRightIR && !IRReadings.rearLeftIR && !IRReadings.frontLeftIR && !IRReadings.frontRightIR)
 	{
 		return true;
 	}

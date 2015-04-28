@@ -4,6 +4,7 @@ const int cancelButtonPin = 2;
 const int downButtonPin = 3;
 const int upButtonPin =  4;
 const int acceptButtonPin = 5;
+const int sendOrderPin = 6;
 const int d7Pin = 7;
 const int d6Pin = 8;
 const int d5Pin = 9;
@@ -30,8 +31,7 @@ Welcome defaultWelcome;
 typedef struct orderLCD{
   char orderLine1[16] = "Sierra Nevada";
   char orderLine2[16] = "Shocktop";
-  char orderLine3[16] = "Stella Artois";
-  char orderLine4[16] = "Audible Ale";
+
   } Order;
 
 Order defaultOrder;
@@ -41,29 +41,22 @@ LiquidCrystal lcd(rsPin, enablePin, d4Pin, d5Pin, d6Pin, d7Pin);
 void drawOrderState(int state)
 {
   lcd.clear();
-  lcd.print(">");
-  lcd.setCursor(1, 0);
   if(state == 0)
   {
+    lcd.print(">");
+    lcd.setCursor(1, 0);
     lcd.print(defaultOrder.orderLine1);
     lcd.setCursor(0, 1);
     lcd.print(defaultOrder.orderLine2);
   }
   else if(state == 1)
   {
+    lcd.setCursor(0, 1);
+    lcd.print(">");
+    lcd.setCursor(0, 0);
+    lcd.print(defaultOrder.orderLine1);
+    lcd.setCursor(1, 1);
     lcd.print(defaultOrder.orderLine2);
-    lcd.setCursor(0, 1);
-    lcd.print(defaultOrder.orderLine3);
-  }
-  else if (state == 2)
-  {
-    lcd.print(defaultOrder.orderLine3);
-    lcd.setCursor(0, 1);
-    lcd.print(defaultOrder.orderLine4);
-  }
-  else if (state == 3)
-  {
-    lcd.print(defaultOrder.orderLine4);
   }
 }
 
@@ -73,7 +66,14 @@ void sendOrder(int state)
   lcd.print("No problem,");
   lcd.setCursor(0, 1);
   lcd.print("be right back!");
-  delay(5000);
+  
+  digitalWrite(sendOrderPin, LOW);
+  delay(1000);
+  if(orderState == 0)
+  {
+    digitalWrite(sendOrderPin, HIGH);
+  }
+  delay(3000);
   lcd.noDisplay();
 }
 
@@ -82,6 +82,7 @@ void setup() {
   pinMode(downButtonPin, INPUT);
   pinMode(upButtonPin, INPUT);
   pinMode(acceptButtonPin, INPUT);
+  pinMode(sendOrderPin, OUTPUT);
   lcd.begin(16, 2); 
   lcd.noBlink();
   lcd.print(defaultWelcome.welcomeLine1);
@@ -90,6 +91,7 @@ void setup() {
   lcd.print(defaultWelcome.welcomeLine3);
   lcd.setCursor(0, 1);
   lcd.print(defaultWelcome.welcomeLine4);
+  digitalWrite(sendOrderPin, HIGH);
 }
 
 void loop(){
@@ -123,21 +125,11 @@ void loop(){
     }
   
     if (downButtonState == HIGH) {
-       if (orderState == 2)
-       {
-         orderState = 3;
-         drawOrderState(orderState);
-       }
-      if (orderState == 1)
-       {
-         orderState = 2;
-         drawOrderState(orderState);
-       }
-      else if(orderState == 0)
+       if (orderState == 0)
        {
          orderState = 1;
          drawOrderState(orderState);
-       }     
+       }
     }
   
     if (upButtonState == HIGH) {
@@ -145,17 +137,7 @@ void loop(){
        {
          orderState = 0;
          drawOrderState(orderState);
-       }
-      else if(orderState == 2)
-       {
-         orderState = 1;
-         drawOrderState(orderState);
-       }
-       else if(orderState == 3)
-       {
-         orderState = 2;
-         drawOrderState(orderState);
-       }        
+       }    
     }
   
     if (acceptButtonState == HIGH) {

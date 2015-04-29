@@ -15,23 +15,25 @@ typedef struct
 	unsigned yZone;
 } moveToZone; //Represents which area the robot should move toward
 
-//Scan for matching color ball
-//TODO add a threshold here
-blobCoords scan(unsigned color)
+//Scan for matching color bottle
+blobCoords scanField(unsigned color)
 {
-	blobCoords firstBall;
+	blobCoords firstBottle;
 	//Take a new reading
 	track_update();
 	if (track_count(color) > 0)
 	{
-		firstBall.x = track_x(color, 0);
-		firstBall.y = track_y(color, 0);
-		firstBall.found = true;
-		return firstBall;
+		if (track_size(color, 0) > 20)
+		{
+			firstBottle.x = track_x(color, 0);
+			firstBottle.y = track_y(color, 0);
+			firstBottle.found = true;
+			return firstBottle;
+		}
 	}
 
-	firstBall.found = false;
-	return firstBall;
+	firstBottle.found = false;
+	return firstBottle;
 }
 
 //Convert the image coordinates into a move-to zone

@@ -4,6 +4,7 @@
 #include "Logger.h"
 #include "BeepCode.h"
 #include "Retrieve.h"
+#include "Open-Fridge.h"
 #include "Deliver.h"
 #include "Order.h"
 #include "Search-Load.h"
@@ -20,50 +21,54 @@ int main()
 	//State 6 - Deliver
 	while (1)
 	{
-		getOrder();
-		printf("\nOrder - Beer %d", globals.globalOrderParams.orderNumber);
-		sleep(10);
-
-		while (!atLocation)
+		if (globals.globalDebugParams.enableDebug == false || globals.globalDebugParams.startInState == 1)
 		{
-			atLocation = launchRetrieval();
+			getOrder();
+			moveRetrieve();
+			moveOpenFridge();
+			getBeer();
+			//close
+			moveDeliver();
 		}
-		atLocation = false;
-		while (!atLocation)
+		else if (globals.globalDebugParams.enableDebug == true && globals.globalDebugParams.startInState == 2)
 		{
-			atLocation = moveRetrieval();
+			globals.globalOrderParams.orderNumber = 0;
+			moveRetrieve();
+			moveOpenFridge();
+			getBeer();
+			//close
+			moveDeliver();
 		}
-		atLocation = false;
-
-		beep();
-
-		//getOrder();
-		while (!atLocation)
+		else if (globals.globalDebugParams.enableDebug == true && globals.globalDebugParams.startInState == 3)
 		{
-			atLocation = launchDeliver();
+			globals.globalOrderParams.orderNumber = 0;
+			moveOpenFridge();
+			getBeer();
+			//close
+			moveDeliver();
 		}
-		atLocation = false;
-		while (!atLocation)
+		else if (globals.globalDebugParams.enableDebug == true && globals.globalDebugParams.startInState == 4)
 		{
-			atLocation = moveDeliver();
+			globals.globalOrderParams.orderNumber = 0;
+			getBeer();
+			//close
+			moveDeliver();
 		}
-		atLocation = false;
-		/*
-		if (!positionClaw())
+		else if (globals.globalDebugParams.enableDebug == true && globals.globalDebugParams.startInState == 5)
 		{
-			log("Error, could locate or load beer", 1);
-			beepCode(3, 1);
-			beepCode(1, 0);
-			return 1;
+			//close
+			moveDeliver();
 		}
-
-		if (!moveDeliver())
+		else if (globals.globalDebugParams.enableDebug == true && globals.globalDebugParams.startInState == 6)
 		{
-			log("Error, could deliver beer", 1);
-			beepCode(5, 1);
-			beepCode(1, 0);
-			return 1;
-		}*/
+			moveDeliver();
+		}
+		else
+		{
+			log("Could not determine start state", 1);
+			log("Check debug settings for mismatches", 1);
+			beepCode(1, 1);
+		}
 	}
 
 	return 0;

@@ -18,6 +18,8 @@ typedef struct
 {
 	unsigned moveSpeed; //General move speed
 	unsigned turnSpeed;
+	unsigned scanSpeed;
+	unsigned ramSpeed;
 	float moveInterval;
 	float turnInterval;
 } motionParams; //Collection of motion parameters
@@ -31,8 +33,7 @@ typedef struct
 
 typedef struct
 {
-	unsigned frontBumperPort;
-	unsigned rearBumperPort;
+	unsigned clawBumperPort;
 	unsigned frontLeftIRPort;
 	unsigned frontRightIRPort;
 	unsigned rearLeftIRPort;
@@ -69,17 +70,18 @@ void setDefaults()
 
 	globals.globalMotionParams.moveSpeed = 300;
 	globals.globalMotionParams.turnSpeed = 200;
+	globals.globalMotionParams.scanSpeed = 50;
+	globals.globalMotionParams.ramSpeed = 800;
 	globals.globalMotionParams.moveInterval = 0.5;
 	globals.globalMotionParams.turnInterval = 0.25;
 
 	globals.globalDebugParams.enableBreakpoints = false;
-	globals.globalDebugParams.enableDebug = false;
-	globals.globalDebugParams.startInState = 0;
+	globals.globalDebugParams.enableDebug = true;
+	globals.globalDebugParams.startInState = 3;
 
-	globals.globalSensorParams.frontBumperPort = 9;
+	globals.globalSensorParams.clawBumperPort = 15;
 	globals.globalSensorParams.frontLeftIRPort = 3;
 	globals.globalSensorParams.frontRightIRPort = 2;
-	globals.globalSensorParams.rearBumperPort = 10;
 	globals.globalSensorParams.rearLeftIRPort = 1;
 	globals.globalSensorParams.rearRightIRPort = 0;
 	globals.globalSensorParams.remoteControlPort = 6;
